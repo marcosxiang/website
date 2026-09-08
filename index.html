@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Zeyu Xiang — mechanical engineering, research, projects, travel, music and football.">
+  <title>Zeyu Xiang</title>
+  <style>
+    :root{
+      --bg:#f5f2ea; --paper:#fbfaf6; --ink:#171614; --muted:#716d65;
+      --line:#cbc6bb; --accent:#8b3f32; --green:#5d6a55; --max:1160px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none} img{display:block;width:100%;height:100%;object-fit:cover}
+    .container{width:min(calc(100% - 44px),var(--max));margin:0 auto}
+    .site-header{position:sticky;top:0;z-index:20;background:rgba(245,242,234,.96);border-bottom:1px solid var(--line)}
+    .nav{height:68px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .mark{width:30px;height:30px;border:1px solid var(--ink);display:grid;place-items:center;font:700 12px Georgia,serif}
+    .nav-links{display:flex;gap:24px;align-items:center}
+    .nav-links a{font-size:12px;color:var(--muted);letter-spacing:.02em}.nav-links a:hover{color:var(--ink)}
+    .nav-toggle{display:none;width:38px;height:38px;background:none;border:1px solid var(--line);font-size:18px}
+
+    .hero{padding:92px 0 86px;border-bottom:1px solid var(--line)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:end}
+    .kicker,.section-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+    .hero h1{font:400 clamp(52px,8vw,92px)/.96 Georgia,"Times New Roman",serif;letter-spacing:-.06em;max-width:760px;margin:18px 0 26px}
+    .hero h1 em{font-style:italic}
+    .hero p{font-size:17px;color:#4f4b44;max-width:660px;margin:0 0 25px}
+    .hero-links{display:flex;gap:20px;flex-wrap:wrap}.hero-links a{font-size:13px;border-bottom:1px solid var(--ink);padding-bottom:3px}.hero-links a.primary{color:var(--accent);border-color:var(--accent)}
+    .portrait-frame{aspect-ratio:4/5;background:#ddd7ca;border:1px solid var(--line);position:relative;overflow:hidden}
+    .portrait-frame::after{content:"PHOTO PLACEHOLDER";position:absolute;inset:auto 0 0 0;background:rgba(251,250,246,.88);padding:10px;font-size:10px;letter-spacing:.12em;color:var(--muted);text-align:center}
+    .portrait-placeholder{height:100%;display:grid;place-items:center;font:italic 22px Georgia,serif;color:#7d776d}
+    .hero-caption{display:flex;justify-content:space-between;padding-top:11px;font-size:11px;color:var(--muted)}
+
+    section{scroll-margin-top:68px}.section{padding:82px 0;border-bottom:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:165px 1fr;gap:34px;margin-bottom:42px}.section-title{font:400 clamp(36px,5vw,60px)/1.02 Georgia,serif;letter-spacing:-.05em;margin:0;max-width:850px}.section-intro{font-size:15px;color:var(--muted);max-width:760px;margin:14px 0 0}
+
+    .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px}.about-main{font:22px/1.48 Georgia,serif;max-width:760px}.facts{border-top:1px solid var(--line)}
+    .fact{padding:14px 0;border-bottom:1px solid var(--line)}.fact small{display:block;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}.fact strong{font-size:14px}
+
+    .work-list{border-top:1px solid var(--ink)}.work-item{display:grid;grid-template-columns:70px 1fr 220px;gap:30px;padding:25px 0;border-bottom:1px solid var(--line);align-items:start}.work-num{color:var(--accent);font:italic 15px Georgia,serif}.work-item h3{font:400 27px Georgia,serif;margin:0 0 5px}.work-item p{margin:0;max-width:690px;color:var(--muted);font-size:14px}.work-side{font-size:11px;color:var(--muted);text-align:right}
+
+    .timeline{border-top:1px solid var(--ink)}.timeline-item{display:grid;grid-template-columns:190px 1fr;gap:38px;padding:25px 0;border-bottom:1px solid var(--line)}.timeline-date{font-size:12px;color:var(--muted);padding-top:4px}.timeline-item h3{font:400 24px Georgia,serif;margin:0 0 6px}.timeline-item p{margin:0;color:var(--muted);max-width:760px;font-size:14px}.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}.meta span{font-size:10px;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:2px}
+
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}.project-card{background:var(--paper);border:1px solid var(--line)}.project-photo{aspect-ratio:16/10;background:#ddd7ca;position:relative;overflow:hidden}.project-placeholder{height:100%;display:grid;place-items:center;color:#7c766c;font:italic 20px Georgia,serif}.project-photo::after{content:"PHOTO / FIGURE PLACEHOLDER";position:absolute;left:12px;bottom:10px;font-size:9px;letter-spacing:.12em;color:#6d685f}.project-body{padding:20px 20px 22px}.project-kicker{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--accent);margin:0 0 7px}.project-body h3{font:400 29px Georgia,serif;letter-spacing:-.02em;margin:0 0 8px}.project-body p{font-size:14px;color:var(--muted);margin:0}.project-link{display:inline-block;margin-top:14px;font-size:12px;border-bottom:1px solid var(--ink)}
+
+    .life-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}.life-copy{font:21px/1.5 Georgia,serif;max-width:600px}.interest-list{margin-top:24px;border-top:1px solid var(--line)}.interest{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:13px}.interest span:last-child{color:var(--muted)}
+    .mini-gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mini-photo{aspect-ratio:1/1;background:#ddd7ca;border:1px solid var(--line);position:relative}.mini-photo.wide{grid-column:span 2;aspect-ratio:2/1}.mini-photo .ph{height:100%;display:grid;place-items:center;color:#7c766c;font:italic 17px Georgia,serif}.mini-photo span{position:absolute;left:9px;bottom:7px;font-size:9px;letter-spacing:.1em;color:#6c675d}
+
+    .travel-list{border-top:1px solid var(--ink)}.travel-row{display:grid;grid-template-columns:100px 1fr 180px;gap:28px;padding:25px 0;border-bottom:1px solid var(--line)}.travel-year{font:italic 15px Georgia,serif;color:var(--accent)}.travel-place{font:400 31px Georgia,serif}.travel-note{font-size:12px;color:var(--muted);text-align:right}
+    .travel-gallery{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-top:24px}.travel-photo{background:#ddd7ca;min-height:290px;position:relative}.travel-photo.tall{min-height:450px}.travel-photo .ph{height:100%;display:grid;place-items:center;color:#7c766c;font:italic 20px Georgia,serif}.travel-photo span{position:absolute;left:12px;bottom:10px;font-size:9px;letter-spacing:.12em;color:#6d685f}
+
+    .pub-list{border-top:1px solid var(--ink)}.publication{display:grid;grid-template-columns:80px 1fr 70px;gap:24px;padding:21px 0;border-bottom:1px solid var(--line)}.pub-year{font-size:12px;color:var(--accent)}.publication h3{font:400 22px Georgia,serif;margin:0 0 5px}.publication p{font-size:13px;color:var(--muted);margin:0}.pub-action{text-align:right;font-size:11px;color:var(--muted)}
+
+    .contact{background:#1c1b18;color:#f5f2ea;padding:88px 0}.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:70px}.contact .section-label{color:#c98473}.contact h2{font:400 clamp(42px,6vw,72px)/1.02 Georgia,serif;letter-spacing:-.055em;max-width:780px;margin:18px 0}.contact .lead{color:#bdb8ae;max-width:600px;font-size:15px}.email{display:inline-block;margin-top:22px;font:italic 25px Georgia,serif;border-bottom:1px solid #857f75;padding-bottom:4px}.contact-links{border-top:1px solid #454139}.contact-link{display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid #454139}.contact-link small{display:block;color:#a49e93;font-size:10px;letter-spacing:.12em;text-transform:uppercase}.contact-link strong{font-size:14px;font-weight:400}
+    footer{padding:20px 0;background:#1c1b18;color:#8f8a81;border-top:1px solid #454139}.footer-row{display:flex;justify-content:space-between;font-size:11px}.footer-row strong{color:#d3cec5}
+
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}.reveal.visible{opacity:1;transform:none}
+
+    .memory-block{margin-top:42px}.memory-head{display:grid;grid-template-columns:100px 1fr auto;gap:28px;align-items:end;padding:18px 0 14px;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}.memory-year{font:italic 15px Georgia,serif;color:var(--accent)}.memory-place{font:400 31px Georgia,serif}.memory-note{font-size:12px;color:var(--muted);text-align:right}.photo-strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 0 8px;scrollbar-width:thin}.photo-card{flex:0 0 min(72vw,520px);aspect-ratio:16/10;background:#ddd7ca;border:1px solid var(--line);position:relative;overflow:hidden;scroll-snap-align:start}.photo-card.square{flex-basis:min(48vw,360px);aspect-ratio:1/1}.photo-card .ph{height:100%;display:grid;place-items:center;color:#7c766c;font:italic 20px Georgia,serif}.photo-card span{position:absolute;left:12px;bottom:10px;font-size:9px;letter-spacing:.12em;color:#6d685f;background:rgba(251,250,246,.84);padding:4px 6px}.photo-card img{width:100%;height:100%;object-fit:cover}.scroll-hint{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);text-align:right;margin-top:4px}.life-story{margin-top:46px}.life-story-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;border-top:1px solid var(--ink);padding:18px 0 14px}.life-story-head h3{margin:0;font:400 31px Georgia,serif}.life-story-head p{margin:0;font-size:12px;color:var(--muted)}
+    @media(max-width:820px){.container{width:min(calc(100% - 28px),var(--max))}.nav-links{position:absolute;top:68px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);display:none;flex-direction:column;align-items:flex-start;padding:14px 20px;gap:0}.nav-links.open{display:flex}.nav-links a{padding:10px 0}.nav-toggle{display:block}.hero-grid,.about-grid,.life-grid,.contact-grid{grid-template-columns:1fr}.hero{padding-top:62px}.hero-grid{gap:38px}.section-head{grid-template-columns:1fr;gap:12px}.work-item{grid-template-columns:42px 1fr}.work-side{display:none}.projects-grid{grid-template-columns:1fr}.timeline-item{grid-template-columns:1fr;gap:7px}.travel-row{grid-template-columns:1fr 1fr}.travel-note{display:none}.travel-place{font-size:28px}.travel-gallery{grid-template-columns:1fr}.travel-photo,.travel-photo.tall{min-height:320px}.publication{grid-template-columns:60px 1fr}.pub-action{display:none}.contact-grid{gap:40px}}
+  </style>
+</head>
+<body>
+  <!-- CONTENT NOTE: Most text and image placeholders can be edited directly below. -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home"><span class="mark">ZX</span><span>Zeyu Xiang</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Open menu">☰</button>
+      <nav class="nav-links">
+        <a href="#about">About</a><a href="#work">Work</a><a href="#life">Life</a><a href="#travel">Travel</a><a href="#publications">Publications</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="kicker">Mechanical Engineering · Japan</div>
+          <!-- EDIT: Replace this sentence with your preferred personal tagline. -->
+          <h1>Engineering is my work. <em>Curiosity is the rest.</em></h1>
+          <!-- EDIT: Replace this paragraph with your short introduction. -->
+          <p>I am Zeyu Xiang, a mechanical engineering student interested in smart devices, wearable systems, robotics, and the many things I find interesting outside the laboratory.</p>
+          <div class="hero-links"><a class="primary" href="#work">Selected work →</a><a href="#life">A little more about me ↓</a></div>
+        </div>
+        <!-- IMAGE: Replace .portrait-placeholder with <img src="assets/profile.jpg" alt="Zeyu Xiang"> -->
+        <div class="reveal">
+          <div class="portrait-frame"><div class="portrait-placeholder">Your portrait</div></div>
+          <div class="hero-caption"><span>Personal archive</span><span>01 / Home</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal"><div class="section-label">01 / About</div><div><h2 class="section-title">A life that happens to include engineering.</h2><p class="section-intro">Research matters to me, but it is only one part of how I spend my time and what I am curious about.</p></div></div>
+        <div class="about-grid">
+          <!-- EDIT: Main personal introduction -->
+          <div class="about-main reveal">I study mechanical engineering and enjoy problems that sit between mechanics, materials, manufacturing, sensing, and control. Outside coursework and research, I follow football, listen to a lot of music, travel whenever I can, and keep photographs of places and ordinary moments that I do not want to forget.</div>
+          <div class="facts reveal">
+            <div class="fact"><small>Based in</small><strong>Japan</strong></div>
+            <div class="fact"><small>Study</small><strong>Mechanical Engineering</strong></div>
+            <div class="fact"><small>Interests</small><strong>Engineering · Music · Football · Travel</strong></div>
+            <div class="fact"><small>Currently</small><strong>Learning, building, and collecting ideas</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-head reveal"><div class="section-label">02 / Work</div><div><h2 class="section-title">Research, projects, and things I like to build.</h2><p class="section-intro">The engineering side of the archive: questions, experiments, software, hardware, and finished or unfinished projects.</p></div></div>
+        <div class="work-list">
+          <article class="work-item reveal"><div class="work-num">01</div><div><h3>Wearable Sensors</h3><p>Flexible and textile-based sensing architectures for mechanical, physiological, and environmental signals.</p></div><div class="work-side">Sensing · Textile · Flexible electronics</div></article>
+          <article class="work-item reveal"><div class="work-num">02</div><div><h3>Smart Materials</h3><p>Functional materials and hierarchical structures for adaptive sensing, actuation, and biomedical interfaces.</p></div><div class="work-side">Materials · Interfaces · Response</div></article>
+          <article class="work-item reveal"><div class="work-num">03</div><div><h3>Robotics & Control</h3><p>Embedded control, motor feedback, mechatronics, and mobile robotic systems.</p></div><div class="work-side">STM32 · PID · Mechatronics</div></article>
+          <article class="work-item reveal"><div class="work-num">04</div><div><h3>Computational Mechanics</h3><p>Numerical modelling and simulation for stress, deformation, dynamics, and design decisions.</p></div><div class="work-side">FEA · Dynamics · Design</div></article>
+        </div>
+
+        <div style="height:68px"></div>
+        <div class="section-head reveal"><div class="section-label">Experience</div><div><h2 class="section-title">Learning by making, testing, and rebuilding.</h2></div></div>
+        <div class="timeline">
+          <article class="timeline-item reveal"><div class="timeline-date">2026 — Present</div><div><h3>Research & Engineering Projects</h3><p>Exploring wearable sensing, smart materials, electrospinning, and intelligent device integration.</p><div class="meta"><span>Wearable systems</span><span>Materials</span><span>Manufacturing</span></div></div></article>
+          <article class="timeline-item reveal"><div class="timeline-date">2025 — 2026</div><div><h3>Robotics & Embedded Control</h3><p>Developed motor-control and feedback systems using STM32, encoders, PWM, PID regulation, servos, and mecanum-wheel mobility.</p><div class="meta"><span>STM32</span><span>PID</span><span>Mechatronics</span></div></div></article>
+          <article class="timeline-item reveal"><div class="timeline-date">Earlier</div><div><h3>Mechanical Engineering Foundations</h3><p>Built a broad base across mechanics, fluids, finite element analysis, machine design, manufacturing, and system dynamics.</p><div class="meta"><span>Mechanics</span><span>FEA</span><span>Design</span></div></div></article>
+        </div>
+
+        <div style="height:68px"></div>
+        <div class="section-head reveal"><div class="section-label">Projects</div><div><h2 class="section-title">A place for real photographs later.</h2><p class="section-intro">The boxes below are intentionally simple placeholders. Replace them with your own experimental photos, CAD renders, prototypes, or field images.</p></div></div>
+        <div class="projects-grid">
+          <!-- IMAGE: Replace project-placeholder with <img src="assets/wearable.jpg" alt="..."> -->
+          <article class="project-card reveal"><div class="project-photo"><div class="project-placeholder">Wearable sensor</div></div><div class="project-body"><p class="project-kicker">Wearable systems</p><h3>Textile-Based Wearable Sensor</h3><p>Flexible sensing architecture combining textile structures, functional materials, and device-level integration.</p><a class="project-link" href="#contact">Project notes →</a></div></article>
+          <article class="project-card reveal"><div class="project-photo"><div class="project-placeholder">Mobile robot</div></div><div class="project-body"><p class="project-kicker">Robotics</p><h3>Mecanum-Wheel Mobile Robot</h3><p>Four-wheel omnidirectional platform with encoder feedback, PWM control, and PID speed regulation.</p><a class="project-link" href="#contact">Project notes →</a></div></article>
+          <article class="project-card reveal"><div class="project-photo"><div class="project-placeholder">Electrospinning</div></div><div class="project-body"><p class="project-kicker">Advanced manufacturing</p><h3>Electrospun Functional Structures</h3><p>Exploring electrospinning as a route to porous, multifunctional layers for sensing and biomedical interfaces.</p><a class="project-link" href="#contact">Project notes →</a></div></article>
+          <article class="project-card reveal"><div class="project-photo"><div class="project-placeholder">Experimental device</div></div><div class="project-body"><p class="project-kicker">Mechanical design</p><h3>Experimental Device Development</h3><p>Mechanisms, fixtures, testing rigs, and experimental hardware.</p><a class="project-link" href="#contact">Project notes →</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="life">
+      <div class="container">
+        <div class="section-head reveal"><div class="section-label">03 / Life</div><div><h2 class="section-title">The parts that do not fit into a CV.</h2><p class="section-intro">Music, football, photography, small routines, and whatever else keeps life from becoming only work.</p></div></div>
+        <div class="life-grid">
+          <div class="reveal">
+            <!-- EDIT: Replace with your own wording. -->
+            <div class="life-copy">I like keeping space for things that have nothing to do with whether a device works. Music is part of daily life. Football is something I follow and enjoy. Travel gives me a reason to slow down and pay attention. Photography is how I keep some of those moments.</div>
+            <div class="interest-list">
+              <div class="interest"><span>Music</span><span>Albums · playlists · concerts</span></div>
+              <div class="interest"><span>Football</span><span>Matches · teams · memories</span></div>
+              <div class="interest"><span>Photography</span><span>Street · architecture · travel</span></div>
+              <div class="interest"><span>Other</span><span>Books · films · places · ideas</span></div>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="life-story"><div class="life-story-head"><h3>Music</h3><p>Albums · concerts · everyday listening</p></div><div class="photo-strip"><!-- IMAGE: Replace placeholders with <img src="assets/music-01.jpg" alt="..."> -->
+              <div class="photo-card square"><div class="ph">Music photo</div><span>PHOTO 01</span></div>
+              <div class="photo-card square"><div class="ph">Music photo</div><span>PHOTO 02</span></div>
+              <div class="photo-card square"><div class="ph">Music photo</div><span>PHOTO 03</span></div>
+            </div><div class="scroll-hint">Scroll horizontally →</div></div>
+            <div class="life-story"><div class="life-story-head"><h3>Football</h3><p>Matches · stadiums · memories</p></div><div class="photo-strip"><!-- IMAGE: Replace placeholders with <img src="assets/football-01.jpg" alt="..."> -->
+              <div class="photo-card"><div class="ph">Football photo</div><span>PHOTO 01</span></div>
+              <div class="photo-card"><div class="ph">Football photo</div><span>PHOTO 02</span></div>
+              <div class="photo-card"><div class="ph">Football photo</div><span>PHOTO 03</span></div>
+            </div><div class="scroll-hint">Scroll horizontally →</div></div>
+            <div class="life-story"><div class="life-story-head"><h3>Photography</h3><p>Street · architecture · travel</p></div><div class="photo-strip"><!-- IMAGE: Replace placeholders with <img src="assets/photo-01.jpg" alt="..."> -->
+              <div class="photo-card"><div class="ph">Photography</div><span>PHOTO 01</span></div>
+              <div class="photo-card"><div class="ph">Photography</div><span>PHOTO 02</span></div>
+              <div class="photo-card"><div class="ph">Photography</div><span>PHOTO 03</span></div>
+              <div class="photo-card"><div class="ph">Photography</div><span>PHOTO 04</span></div>
+            </div><div class="scroll-hint">Scroll horizontally →</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="travel">
+      <div class="container">
+        <div class="section-head reveal"><div class="section-label">04 / Travel</div><div><h2 class="section-title">Places I have been, and places I would like to return to.</h2><p class="section-intro">Each trip is kept as one simple line of place and time, followed directly by the photographs.</p></div></div>
+
+        <!-- TRAVEL ENTRY: duplicate this .memory-block when you add another trip. -->
+        <article class="memory-block reveal">
+          <div class="memory-head"><div class="memory-year">2026</div><div class="memory-place">Japan</div><div class="memory-note">Everyday places · current</div></div>
+          <div class="photo-strip"><!-- IMAGE: Replace placeholders with <img src="assets/japan-01.jpg" alt="Japan"> -->
+            <div class="photo-card"><div class="ph">Japan photograph</div><span>PHOTO 01</span></div>
+            <div class="photo-card"><div class="ph">Japan photograph</div><span>PHOTO 02</span></div>
+            <div class="photo-card"><div class="ph">Japan photograph</div><span>PHOTO 03</span></div>
+            <div class="photo-card"><div class="ph">Japan photograph</div><span>PHOTO 04</span></div>
+          </div><div class="scroll-hint">Scroll horizontally →</div>
+        </article>
+
+        <article class="memory-block reveal">
+          <div class="memory-head"><div class="memory-year">2025</div><div class="memory-place">Austria &amp; Hungary</div><div class="memory-note">Vienna · Budapest</div></div>
+          <div class="photo-strip"><!-- IMAGE: Replace placeholders with <img src="assets/vienna-01.jpg" alt="Vienna"> -->
+            <div class="photo-card"><div class="ph">Vienna / Budapest</div><span>PHOTO 01</span></div>
+            <div class="photo-card"><div class="ph">Vienna / Budapest</div><span>PHOTO 02</span></div>
+            <div class="photo-card"><div class="ph">Vienna / Budapest</div><span>PHOTO 03</span></div>
+            <div class="photo-card"><div class="ph">Vienna / Budapest</div><span>PHOTO 04</span></div>
+            <div class="photo-card"><div class="ph">Vienna / Budapest</div><span>PHOTO 05</span></div>
+          </div><div class="scroll-hint">Scroll horizontally →</div>
+        </article>
+
+        <article class="memory-block reveal">
+          <div class="memory-head"><div class="memory-year">2025</div><div class="memory-place">Norway</div><div class="memory-note">Oslo · Reykjavik</div></div>
+          <div class="photo-strip"><!-- IMAGE: Replace placeholders with <img src="assets/norway-01.jpg" alt="Norway"> -->
+            <div class="photo-card"><div class="ph">Norway photograph</div><span>PHOTO 01</span></div>
+            <div class="photo-card"><div class="ph">Norway photograph</div><span>PHOTO 02</span></div>
+            <div class="photo-card"><div class="ph">Norway photograph</div><span>PHOTO 03</span></div>
+          </div><div class="scroll-hint">Scroll horizontally →</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="container">
+        <div class="section-head reveal"><div class="section-label">05 / Publications</div><div><h2 class="section-title">Research outputs, kept simple.</h2><p class="section-intro">Only add verified publications here. DOI, journal, preprint, or PDF links can be attached later.</p></div></div>
+        <div class="pub-list">
+          <article class="publication reveal"><div class="pub-year">2026</div><div><h3>Your publication title</h3><p>Zeyu Xiang, et al. · Journal / Conference</p></div><div class="pub-action">DOI →</div></article>
+          <article class="publication reveal"><div class="pub-year">2025</div><div><h3>Another publication or manuscript</h3><p>Zeyu Xiang, et al. · Journal / Conference</p></div><div class="pub-action">PDF →</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="reveal"><div class="section-label">06 / Contact</div><h2>Work, ideas, football, music, or a good place to visit.</h2><p class="lead">This is the part of the site for conversations that do not need a category.</p><a class="email" href="mailto:your.email@example.com">your.email@example.com ↗</a></div>
+        <div class="contact-links reveal">
+          <!-- EDIT: Replace # with your real profile URLs. -->
+          <a class="contact-link" href="#"><div><small>Google Scholar</small><strong>Add profile URL</strong></div><span>↗</span></a>
+          <a class="contact-link" href="#"><div><small>GitHub</small><strong>Add profile URL</strong></div><span>↗</span></a>
+          <a class="contact-link" href="#"><div><small>ORCID</small><strong>Add profile URL</strong></div><span>↗</span></a>
+          <a class="contact-link" href="#"><div><small>Instagram / Other</small><strong>Add profile URL</strong></div><span>↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container footer-row"><div><strong>Zeyu Xiang</strong> · Mechanical Engineering</div><div>© <span id="year"></span></div></div></footer>
+
+  <script>
+    const toggle=document.querySelector('.nav-toggle');
+    const links=document.querySelector('.nav-links');
+    toggle?.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',open?'true':'false');toggle.textContent=open?'×':'☰'});
+    links?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}));
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const items=document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.08});items.forEach(i=>io.observe(i))}else items.forEach(i=>i.classList.add('visible'));
+  </script>
+</body>
+</html>
