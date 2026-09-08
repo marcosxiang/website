@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Zeyu Xiang — Mechanical Engineering, research, projects and publications.">
+  <meta name="theme-color" content="#f3f0e8">
+  <title>Zeyu Xiang — Mechanical Engineering</title>
+  <style>
+    :root{
+      --paper:#f3f0e8;
+      --paper-2:#e9e4d8;
+      --ink:#171713;
+      --muted:#6e6a60;
+      --faint:#aaa49a;
+      --line:#cfc8bc;
+      --accent:#8d3e32;
+      --accent-dark:#713027;
+      --olive:#5e6752;
+      --white:#fbfaf7;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    ::selection{background:#d9c1ba;color:var(--ink)}
+    .container{width:min(calc(100% - 48px),var(--max));margin:0 auto}
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(243,240,232,.94);border-bottom:1px solid var(--line)}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.02em}
+    .brand-mark{width:28px;height:28px;border:1px solid var(--ink);display:grid;place-items:center;font:700 11px Georgia,serif}
+    .brand-name{font-size:15px}
+    .nav-links{display:flex;gap:2px;align-items:center}
+    .nav-links a{font-size:12px;letter-spacing:.02em;padding:8px 10px;color:var(--muted)}
+    .nav-links a:hover,.nav-links a.active{color:var(--ink)}
+    .nav-links a::after{content:"";display:block;height:1px;background:transparent;margin-top:2px}
+    .nav-links a:hover::after,.nav-links a.active::after{background:var(--accent)}
+    .nav-toggle{display:none;border:1px solid var(--line);background:transparent;width:40px;height:40px;font-size:18px;cursor:pointer}
+
+    .hero{padding:86px 0 100px;border-bottom:1px solid var(--line)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:end}
+    .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+    .hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(48px,7vw,88px);line-height:.97;letter-spacing:-.055em;margin:0 0 28px;max-width:800px}
+    .hero h1 em{font-style:italic}
+    .hero-lead{font-size:18px;color:#4f4d47;max-width:690px;margin:0 0 24px}
+    .hero-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+    .text-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;border-bottom:1px solid var(--ink);padding-bottom:3px}
+    .text-btn.accent{color:var(--accent);border-color:var(--accent)}
+    .hero-note{border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:12px;max-width:280px}
+    .hero-note strong{display:block;color:var(--ink);font-size:13px;margin-bottom:3px}
+    .hero-visual{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:18px 0 12px;position:relative;min-height:310px}
+    .visual-label{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+    .visual-diagram{position:relative;height:230px;overflow:hidden}
+    .visual-diagram::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--line)}
+    .visual-diagram::after{content:"";position:absolute;top:50%;left:0;right:0;height:1px;background:var(--line)}
+    .orbit{position:absolute;border:1px solid #989186;border-radius:50%;transform:rotate(-18deg)}
+    .o1{width:200px;height:92px;left:50%;top:50%;margin:-46px 0 0 -100px}
+    .o2{width:170px;height:170px;left:50%;top:50%;margin:-85px 0 0 -85px;border-color:#b5aea3;transform:rotate(22deg)}
+    .o3{width:260px;height:120px;left:50%;top:50%;margin:-60px 0 0 -130px;border-color:#b5aea3;transform:rotate(-56deg)}
+    .dot{position:absolute;width:11px;height:11px;background:var(--accent);border-radius:50%}
+    .dot.a{left:29%;top:60%}.dot.b{right:18%;top:34%;background:var(--olive)}.dot.c{left:57%;bottom:11%;width:8px;height:8px;background:var(--ink)}
+    .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:72px;border:1px solid var(--ink);background:var(--paper);border-radius:50%;display:grid;place-items:center;text-align:center;font:700 11px/1.1 Arial}
+    .visual-caption{font:italic 12px Georgia,serif;color:var(--muted)}
+
+    section{scroll-margin-top:72px}
+    .section{padding:86px 0;border-bottom:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:180px 1fr;gap:34px;margin-bottom:48px}
+    .section-no{font:italic 14px Georgia,serif;color:var(--accent);padding-top:6px}
+    .section-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(38px,5vw,62px);line-height:1.05;font-weight:400;letter-spacing:-.045em;margin:0}
+    .section-intro{font-size:16px;color:var(--muted);max-width:700px;margin:15px 0 0}
+
+    .about-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:48px}
+    .about-main{font:22px/1.5 Georgia,"Times New Roman",serif;max-width:760px}
+    .facts{border-top:1px solid var(--line)}
+    .fact{padding:15px 0;border-bottom:1px solid var(--line)}
+    .fact span{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}.fact strong{font-size:14px}
+
+    .research-list{border-top:1px solid var(--ink)}
+    .research-item{display:grid;grid-template-columns:64px 1fr 280px;gap:28px;padding:25px 0;border-bottom:1px solid var(--line);align-items:start}
+    .research-item:hover{background:rgba(255,255,255,.28)}
+    .research-num{font-size:11px;color:var(--accent);padding-top:5px}
+    .research-item h3{font-family:Georgia,serif;font-weight:400;font-size:30px;letter-spacing:-.035em;margin:0 0 8px}
+    .research-item p{margin:0;color:var(--muted);font-size:14px;max-width:650px}
+    .research-side{font-size:11px;color:var(--muted);padding-top:6px}
+
+    .map{margin-top:54px;padding:32px;border:1px solid var(--line);background:var(--paper-2)}
+    .map-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .map-step{padding:24px 18px;min-height:130px;border-right:1px solid var(--line);position:relative}.map-step:last-child{border-right:0}
+    .map-step::after{content:"→";position:absolute;right:-9px;top:50%;transform:translateY(-50%);background:var(--paper-2);padding:0 3px;color:var(--accent)}.map-step:last-child::after{display:none}
+    .map-step small{display:block;color:var(--muted);font-size:10px;margin-bottom:8px}.map-step strong{font:400 22px Georgia,serif}.map-step:last-child strong{color:var(--accent)}
+
+    .timeline{border-top:1px solid var(--ink)}
+    .timeline-item{display:grid;grid-template-columns:180px 1fr;gap:34px;padding:26px 0;border-bottom:1px solid var(--line)}
+    .timeline-date{font-size:11px;color:var(--accent);padding-top:4px}
+    .timeline-item h3{font:400 28px Georgia,serif;margin:0 0 7px;letter-spacing:-.025em}.timeline-item p{margin:0;color:var(--muted);max-width:720px;font-size:14px}
+    .meta{margin-top:12px;display:flex;gap:16px;flex-wrap:wrap}.meta span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+    .project-card{background:var(--white);border:1px solid var(--line);transition:transform .25s ease,box-shadow .25s ease}.project-card:hover{transform:translateY(-4px);box-shadow:0 18px 30px rgba(33,28,20,.08)}
+    .project-visual{height:240px;border-bottom:1px solid var(--line);position:relative;overflow:hidden;background:#ded7c8}
+    .project-visual::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 39px,rgba(30,28,24,.06) 40px),repeating-linear-gradient(0deg,transparent 0 39px,rgba(30,28,24,.06) 40px)}
+    .project-shape{position:absolute;border:1px solid var(--ink)}
+    .project-shape.s1{width:160px;height:100px;left:16%;top:22%;transform:rotate(-12deg)}.project-shape.s2{width:90px;height:90px;right:18%;bottom:18%;border-radius:50%;border-color:var(--accent)}
+    .project-word{position:absolute;right:18px;bottom:12px;font:italic 48px Georgia,serif;color:rgba(23,23,19,.75)}
+    .project-visual.p2{background:#cfd3cb}.project-visual.p2 .project-shape.s1{width:120px;height:120px;border-radius:12px;left:22%;top:28%;transform:none}.project-visual.p2 .project-shape.s2{width:170px;height:60px;right:13%;bottom:25%;border-radius:0;border-color:var(--olive)}
+    .project-visual.p3{background:#d8d5cf}.project-visual.p3 .project-shape.s1{width:220px;height:70px;left:15%;top:40%;transform:skew(-20deg)}.project-visual.p3 .project-shape.s2{width:22px;height:160px;right:24%;bottom:8%;border-color:var(--accent);border-width:2px}
+    .project-body{padding:22px 24px 24px}.project-kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 9px}.project-body h3{font:400 29px/1.1 Georgia,serif;letter-spacing:-.03em;margin:0 0 10px}.project-body p{margin:0;color:var(--muted);font-size:14px}.project-link{display:inline-block;margin-top:18px;font-size:12px;font-weight:700;border-bottom:1px solid var(--ink)}
+
+    .pub-list{border-top:1px solid var(--ink)}
+    .publication{display:grid;grid-template-columns:90px 1fr 80px;gap:24px;align-items:start;padding:24px 0;border-bottom:1px solid var(--line)}
+    .pub-year{font-size:11px;color:var(--accent);padding-top:5px}.publication h3{font:400 23px/1.18 Georgia,serif;margin:0 0 5px}.publication p{margin:0;color:var(--muted);font-size:13px}.pub-action{text-align:right;font-size:11px;color:var(--accent)}
+
+    .contact{background:#1d1c18;color:#f5f2ea;padding:90px 0}.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:70px}.contact .section-no{color:#c79287}.contact h2{font:400 clamp(42px,6vw,72px)/1 Georgia,serif;letter-spacing:-.045em;margin:0 0 20px}.contact .lead{max-width:600px;color:#b8b2a8;font-size:16px;margin:0 0 28px}.email{display:inline-block;font-size:16px;border-bottom:1px solid #f5f2ea;padding-bottom:4px}.contact-links{border-top:1px solid #494741}.contact-link{display:flex;justify-content:space-between;gap:20px;padding:17px 0;border-bottom:1px solid #494741}.contact-link small{display:block;color:#938e84;font-size:10px;letter-spacing:.12em;text-transform:uppercase}.contact-link strong{display:block;font-size:14px;font-weight:400;margin-top:2px}.contact-link span{color:#c79287}
+    footer{background:#1d1c18;color:#837e74;border-top:1px solid #494741;padding:20px 0;font-size:11px}.footer-row{display:flex;justify-content:space-between;gap:20px}.footer-row strong{color:#e9e4da;font-weight:500}
+
+    .reveal{opacity:0;transform:translateY(15px);transition:opacity .5s ease,transform .5s ease}.reveal.visible{opacity:1;transform:none}
+    @media (max-width:900px){
+      .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.hero{padding-top:58px}.hero-visual{max-width:600px}.research-item{grid-template-columns:50px 1fr}.research-side{grid-column:2}.map-grid{grid-template-columns:1fr 1fr}.map-step:nth-child(2n){border-right:0}.map-step:nth-child(3),.map-step:nth-child(4),.map-step:nth-child(5){border-top:1px solid var(--line)}.map-step:nth-child(2n)::after{display:none}.map-step:last-child{grid-column:1/-1}.projects-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:700px){
+      .container{width:min(calc(100% - 28px),var(--max))}.nav{height:64px}.nav-toggle{display:block}.nav-links{position:absolute;left:14px;right:14px;top:64px;background:var(--paper);border:1px solid var(--line);display:none;flex-direction:column;align-items:stretch;padding:8px}.nav-links.open{display:flex}.nav-links a{padding:12px}.hero h1{font-size:clamp(44px,14vw,70px)}.section{padding:64px 0}.section-head{grid-template-columns:1fr;gap:8px;margin-bottom:34px}.section-no{padding:0}.about-main{font-size:19px}.research-item{grid-template-columns:1fr;gap:6px}.research-num{padding:0}.research-side{grid-column:auto}.timeline-item{grid-template-columns:1fr;gap:8px}.publication{grid-template-columns:1fr}.pub-action{text-align:left}.map-grid{grid-template-columns:1fr}.map-step{border-right:0;border-top:1px solid var(--line)}.map-step:first-child{border-top:0}.map-step::after{display:none}.map-step:last-child{grid-column:auto}.footer-row{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home"><span class="brand-mark">ZX</span><span class="brand-name">Zeyu Xiang</span></a>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Mechanical Engineering · Intelligent Systems</div>
+          <h1>Building useful things at the intersection of <em>mechanics</em>, materials, and sensing.</h1>
+          <p class="hero-lead">I am Zeyu Xiang, a mechanical engineering student interested in wearable sensors, smart materials, advanced manufacturing, robotics, and human-centered intelligent systems.</p>
+          <div class="hero-actions">
+            <a class="text-btn accent" href="#research">Explore research →</a>
+            <a class="text-btn" href="assets/cv.pdf">View CV ↗</a>
+          </div>
+        </div>
+        <aside class="hero-visual reveal">
+          <div class="visual-label"><span>Field notes / 01</span><span>Mechanics → device</span></div>
+          <div class="visual-diagram">
+            <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
+            <div class="dot a"></div><div class="dot b"></div><div class="dot c"></div>
+            <div class="core">MAKE<br>MEASURE<br>LEARN</div>
+          </div>
+          <div class="visual-caption">A simple visual language for the kinds of systems I like to work on.</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal"><div class="section-no">01 / About</div><div><h2 class="section-title">Curious about how things work — and how to make them better.</h2><p class="section-intro">My work starts with engineering fundamentals and moves toward devices that have to function in the real world.</p></div></div>
+        <div class="about-grid">
+          <div class="about-main reveal">I am currently pursuing undergraduate training in Mechanical Engineering. My interests sit between classical mechanics and emerging smart-device technologies. I enjoy problems that require more than one discipline: a material that changes a signal, a structure that creates a useful response, or a control system that makes a mechanical platform behave reliably.</div>
+          <div class="facts reveal">
+            <div class="fact"><span>Current focus</span><strong>Wearable sensing & smart devices</strong></div>
+            <div class="fact"><span>Engineering base</span><strong>Mechanics · design · manufacturing · control</strong></div>
+            <div class="fact"><span>Working style</span><strong>Build · test · understand · iterate</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="container">
+        <div class="section-head reveal"><div class="section-no">02 / Research</div><div><h2 class="section-title">A few questions I keep coming back to.</h2><p class="section-intro">How should materials, structures, fabrication, and computation work together when the final device has to be small, flexible, and useful?</p></div></div>
+        <div class="research-list">
+          <article class="research-item reveal"><div class="research-num">01</div><div><h3>Wearable Sensors</h3><p>Flexible and textile-based sensing architectures for mechanical, physiological, and environmental signals.</p></div><div class="research-side">Sensing · Textile · Flexible electronics</div></article>
+          <article class="research-item reveal"><div class="research-num">02</div><div><h3>Smart Materials</h3><p>Functional materials and hierarchical structures for adaptive sensing, actuation, and biomedical interfaces.</p></div><div class="research-side">Materials · Interfaces · Response</div></article>
+          <article class="research-item reveal"><div class="research-num">03</div><div><h3>Advanced Manufacturing</h3><p>Electrospinning, microfabrication, and structure–process–property relationships in multifunctional devices.</p></div><div class="research-side">Fabrication · Structure · Process</div></article>
+          <article class="research-item reveal"><div class="research-num">04</div><div><h3>Robotics & Control</h3><p>Embedded control, motor feedback, mechatronics, and mobile robotic systems.</p></div><div class="research-side">STM32 · PID · Mechatronics</div></article>
+          <article class="research-item reveal"><div class="research-num">05</div><div><h3>Computational Mechanics</h3><p>Numerical modelling and simulation for stress, deformation, dynamics, and design decisions.</p></div><div class="research-side">FEA · Dynamics · Design</div></article>
+        </div>
+        <div class="map reveal">
+          <div class="section-no">Research map</div>
+          <div class="map-grid">
+            <div class="map-step"><small>01</small><strong>Mechanics</strong></div>
+            <div class="map-step"><small>02</small><strong>Materials</strong></div>
+            <div class="map-step"><small>03</small><strong>Manufacturing</strong></div>
+            <div class="map-step"><small>04</small><strong>Sensing</strong></div>
+            <div class="map-step"><small>05</small><strong>Intelligent systems</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head reveal"><div class="section-no">03 / Experience</div><div><h2 class="section-title">Learning by making, testing, and rebuilding.</h2><p class="section-intro">A growing record of research, engineering projects, and the skills behind them.</p></div></div>
+        <div class="timeline">
+          <article class="timeline-item reveal"><div class="timeline-date">2026 — Present</div><div><h3>Research & Engineering Projects</h3><p>Exploring wearable sensing, smart materials, electrospinning, and intelligent device integration.</p><div class="meta"><span>Wearable systems</span><span>Materials</span><span>Manufacturing</span></div></div></article>
+          <article class="timeline-item reveal"><div class="timeline-date">2025 — 2026</div><div><h3>Robotics & Embedded Control</h3><p>Developed motor-control and feedback systems using STM32, encoders, PWM, PID regulation, servos, and mecanum-wheel mobility.</p><div class="meta"><span>STM32</span><span>PID</span><span>Mechatronics</span></div></div></article>
+          <article class="timeline-item reveal"><div class="timeline-date">Earlier</div><div><h3>Mechanical Engineering Foundations</h3><p>Built a broad base across mechanics, materials mechanics, fluids, finite element analysis, machine design, manufacturing, and system dynamics.</p><div class="meta"><span>Mechanics</span><span>FEA</span><span>Design</span></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head reveal"><div class="section-no">04 / Projects</div><div><h2 class="section-title">From an idea on paper to a physical system.</h2><p class="section-intro">These are visual placeholders for real project photographs, CAD drawings, experimental setups, and device images that can be added later.</p></div></div>
+        <div class="projects-grid">
+          <article class="project-card reveal"><div class="project-visual"><div class="project-shape s1"></div><div class="project-shape s2"></div><div class="project-word">SENSE</div></div><div class="project-body"><p class="project-kicker">Wearable systems</p><h3>Textile-Based Wearable Sensor</h3><p>Flexible sensing architecture combining textile structures, functional materials, and device-level integration.</p><a class="project-link" href="#contact">Project notes →</a></div></article>
+          <article class="project-card reveal"><div class="project-visual p2"><div class="project-shape s1"></div><div class="project-shape s2"></div><div class="project-word">MOVE</div></div><div class="project-body"><p class="project-kicker">Robotics</p><h3>Mecanum-Wheel Mobile Robot</h3><p>Four-wheel omnidirectional platform with encoder feedback, PWM control, and PID speed regulation.</p><a class="project-link" href="#contact">Project notes →</a></div></article>
+          <article class="project-card reveal"><div class="project-visual p3"><div class="project-shape s1"></div><div class="project-shape s2"></div><div class="project-word">MAKE</div></div><div class="project-body"><p class="project-kicker">Advanced manufacturing</p><h3>Electrospun Functional Structures</h3><p>Exploring electrospinning as a route to porous, multifunctional layers for sensing and biomedical interfaces.</p><a class="project-link" href="#contact">Project notes →</a></div></article>
+          <article class="project-card reveal"><div class="project-visual p3"><div class="project-shape s1" style="left:22%;top:34%;width:150px;height:90px"></div><div class="project-shape s2" style="right:16%;bottom:18%;width:80px;height:80px;border-radius:50%"></div><div class="project-word">BUILD</div></div><div class="project-body"><p class="project-kicker">Mechanical design</p><h3>Experimental Device Development</h3><p>A place for future work in mechanisms, fixtures, testing rigs, and experimental hardware.</p><a class="project-link" href="#contact">Project notes →</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="container">
+        <div class="section-head reveal"><div class="section-no">05 / Publications</div><div><h2 class="section-title">Selected research outputs.</h2><p class="section-intro">Only verified publications should live here. Add DOI, journal, preprint, or PDF links as your publication record grows.</p></div></div>
+        <div class="pub-list">
+          <article class="publication reveal"><div class="pub-year">2026</div><div><h3>Your future publication title goes here</h3><p>Zeyu Xiang, et al. · Journal / Conference</p></div><div class="pub-action">DOI →</div></article>
+          <article class="publication reveal"><div class="pub-year">2025</div><div><h3>Example manuscript / review title</h3><p>Zeyu Xiang, et al. · Journal / Conference</p></div><div class="pub-action">PDF →</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="reveal"><div class="section-no">06 / Contact</div><h2>Let's talk about a good engineering problem.</h2><p class="lead">For research discussions, project collaboration, academic opportunities, or interesting engineering problems, feel free to get in touch.</p><a class="email" href="mailto:your.email@example.com">your.email@example.com ↗</a></div>
+        <div class="contact-links reveal">
+          <a class="contact-link" href="#" onclick="return false"><div><small>Google Scholar</small><strong>Add profile URL</strong></div><span>↗</span></a>
+          <a class="contact-link" href="#" onclick="return false"><div><small>GitHub</small><strong>Add profile URL</strong></div><span>↗</span></a>
+          <a class="contact-link" href="#" onclick="return false"><div><small>ORCID</small><strong>Add profile URL</strong></div><span>↗</span></a>
+          <a class="contact-link" href="#" onclick="return false"><div><small>LinkedIn</small><strong>Add profile URL</strong></div><span>↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container footer-row"><div><strong>Zeyu Xiang</strong> · Mechanical Engineering</div><div>© <span id="year"></span></div></div></footer>
+
+  <script>
+    const toggle=document.querySelector('.nav-toggle');
+    const links=document.querySelector('.nav-links');
+    toggle?.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',open);toggle.textContent=open?'×':'☰'});
+    links?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}));
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const reveal=document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.1});reveal.forEach(e=>io.observe(e));}else{reveal.forEach(e=>e.classList.add('visible'))}
+    const sections=[...document.querySelectorAll('main section[id]')];
+    const nav=[...document.querySelectorAll('.nav-links a')];
+    const spy=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){nav.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id))}}),{rootMargin:'-35% 0px -55% 0px',threshold:0});
+    sections.forEach(s=>spy.observe(s));
+  </script>
+</body>
+</html>
